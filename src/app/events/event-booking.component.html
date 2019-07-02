@@ -1,0 +1,89 @@
+<h1>{{event.name}}</h1>
+<p>Number of available seats: <strong>{{event.seatsavailable}}</strong></p>
+<hr>
+<div class="col-md-6">
+  <form [formGroup]="eventBookingForm" autocomplete="off" novalidate>
+    <div class="form-group"
+      [ngClass]="{'error': eventBookingForm.controls.name?.invalid && eventBookingForm.controls.name?.touched}">
+      <label for="name">User Name:</label>
+      <em *ngIf="eventBookingForm.controls.name?.invalid && (eventBookingForm.controls.name?.touched)">Required*</em>
+      <input formControlName="name" name="name" required id="name" type="text" class="form-control"
+        placeholder="User name" />
+      <div
+        *ngIf="(eventBookingForm.controls.name?.invalid) && (eventBookingForm.controls.name?.dirty || eventBookingForm.controls.name?.touched)">
+        <div *ngIf="eventBookingForm.controls.name?.errors.required" class="error-text">Please enter your name</div>
+        <div *ngIf="eventBookingForm.controls.name?.errors.pattern" class="error-text">Only letters and spaces are
+          allowed</div>
+      </div>
+    </div>
+    <div class="form-group"
+      [ngClass]="{'error': eventBookingForm.controls.email?.invalid && eventBookingForm.controls.email?.touched}">
+      <label for="email">Email:</label>
+      <em *ngIf="eventBookingForm.controls.email?.invalid && (eventBookingForm.controls.email?.touched)">Required*</em>
+      <input formControlName="email" name="email" required id="email" type="text" class="form-control"
+        placeholder="Email address" />
+      <div
+        *ngIf="(eventBookingForm.controls.email?.invalid) && (eventBookingForm.controls.email?.dirty || eventBookingForm.controls.email?.touched)">
+        <div *ngIf="eventBookingForm.controls.email?.errors.required" class="error-text">Please enter your email</div>
+        <div *ngIf="eventBookingForm.controls.email?.errors.pattern" class="error-text">Invalid email</div>
+      </div>
+    </div>
+    <div class="form-group"
+      [ngClass]="{'error': eventBookingForm.controls.email?.invalid && eventBookingForm.controls.email?.touched}">
+      <label for="phoneNumber">Phone Number:</label>
+      <em
+        *ngIf="eventBookingForm.controls.phoneNumber?.invalid && (eventBookingForm.controls.phoneNumber?.touched)">Required*</em>
+      <input formControlName="phoneNumber" name="phoneNumber" required id="phoneNumber" type="text" class="form-control"
+        placeholder="Phone Number" />
+      <div
+        *ngIf="(eventBookingForm.controls.phoneNumber?.invalid) && (eventBookingForm.controls.phoneNumber?.dirty || eventBookingForm.controls.phoneNumber?.touched)">
+        <div *ngIf="eventBookingForm.controls.phoneNumber?.errors.required" class="error-text">Please enter 10 digit
+          phone
+          number</div>
+        <div *ngIf="eventBookingForm.controls.phoneNumber?.errors.pattern" class="error-text">Please enter 10 digit
+          phone
+          number</div>
+      </div>
+    </div>
+    <div class="form-group"
+      [ngClass]="{'error': eventBookingForm.controls.email?.invalid && eventBookingForm.controls.email?.touched}">
+      <label for="numberOfSeats">No. of Seats:</label>
+      <em
+        *ngIf="eventBookingForm.controls.numberOfSeats?.invalid && (eventBookingForm.controls.numberOfSeats?.touched)">Required*</em>
+      <select class="form-control" formControlName="numberOfSeats" name="numberOfSeats" required id="numberOfSeats"
+        (change)="numberOfSeatsOnChange()">
+        <option value="">Select number of seats</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+      <div
+        *ngIf="(eventBookingForm.controls.numberOfSeats?.invalid) && (eventBookingForm.controls.numberOfSeats?.dirty || eventBookingForm.controls.numberOfSeats?.touched)">
+        <div *ngIf="eventBookingForm.controls.numberOfSeats?.errors.required" class="error-text">Please enter number of
+          seats</div>
+      </div>
+    </div>
+    <div class="form-group" formArrayName="attendees"
+      *ngFor="let attendee of eventBookingForm.get('attendees').controls; let i = index;">
+      <div [formGroupName]="i">
+        <label for="nameOfAttendee">Name of Attendee {{i+2}}:</label>
+        <input name="attendeeName" required type="text" class="form-control" placeholder="Name of Attendee {{i+2}}"
+          formControlName="attendeeName" />
+        <div
+          *ngIf="(eventBookingForm.controls.attendees.controls[i].controls.attendeeName?.invalid) && (eventBookingForm.controls.attendees.controls[i].controls.numberOfSeats?.dirty || eventBookingForm.controls.attendees.controls[i].controls.numberOfSeats?.touched)">
+          <div *ngIf="eventBookingForm.controls.attendees.controls[i].controls.numberOfSeats?.errors.required"
+            class="error-text">Please enter the name of Attendee {{i}}</div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="eventBookingForm.invalid" class="btn btn-event"
+      (click)="saveBooking($event)">Save</button>
+    <button type="button" class="btn btn-default" (click)="cancel($event)">Cancel</button>
+  </form>
+  <br>
+  <p>{{eventBookingForm.value | json }}</p>
+  
+</div>

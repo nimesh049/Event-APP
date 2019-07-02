@@ -1,0 +1,14 @@
+.session-list-thumbnails{
+    position: relative;
+    float: left;
+    width: 100%;
+    background: #f7f7f7;
+    display: block;
+    border: 2px solid #e7c404;
+    padding: 15px ;
+}
+
+.session-list-thumbnails:hover{
+    border: 2px solid #851003;
+    cursor: pointer;
+}

@@ -1,0 +1,13 @@
+.container{
+    padding: 0 20px;
+}
+.event-image{
+    height:100px;
+}
+
+.session-listing-cards{
+    margin-top:20px;
+}
+.page-header {
+    border-bottom: 1px solid #851003;
+}

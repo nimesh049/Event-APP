@@ -1,0 +1,155 @@
+.profile-card-list {
+  position: relative;
+  float: left;
+  width: 100%;
+  background: #f7f7f7;
+  display: block;
+  border: 2px solid #e7c404;
+  min-height: 350px;
+  padding: 15px 8px;
+  padding-bottom: 0;
+  margin-bottom: 12px;
+}
+
+.profile-card-list:hover {
+  border: 2px solid #851003;
+  cursor: pointer;
+}
+
+.profile-card-list img {
+  max-width: 100%;
+  height: 100px;
+  display: inline-block;
+}
+
+.profile-card-list h3.person-name {
+  color: #4e4e4e;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 25px;
+  text-align: left;
+}
+
+.designation {
+  color: #696969;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  line-height: 17px;
+}
+
+.address-info.add-list {
+  padding: 5px 5px 5px 5px;
+}
+
+.add-list>ul {
+  padding: 5px;
+}
+
+.add-list>ul>li {
+  list-style-position: outside;
+  text-indent: -0.8em;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.add-list>ul>li>span {
+  font-size: 14px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.add-list .tel-contact span {
+  color: #8a1414;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 25px;
+}
+
+.add-list .venue-place span {
+  color: #4e4e4e;
+  line-height: 20px;
+}
+
+.add-list ul li:before {
+  content: "\f193";
+  font: normal normal normal 20px/26px FontAwesome;
+  text-rendering: auto;
+  position: absolute;
+  color: #851003;
+  font-weight: 400;
+}
+
+.tel-contact:before {
+  content: "\f193";
+}
+
+.website-url:before {
+  content: "\f0ac";
+}
+
+.add-list ul li.venue-place:before {
+  content: "\f041";
+}
+
+.contact-info .btn-contact-info {
+  display: block;
+  margin: 8px 0px;
+  line-height: 1.2em;
+  text-align: center;
+  position: relative;
+}
+
+.ribbon {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px;
+  height: 75px;
+  text-align: right;
+}
+
+.ribbon span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 100px;
+  display: block;
+  background: #d9534f;
+  background: linear-gradient(#d9534f 0%, #d9534f 100%);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 19px;
+  right: -21px;
+}
+
+.ribbon span::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid #d9534f;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #d9534f;
+}
+
+.ribbon span::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #d9534f;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #d9534f;
+}

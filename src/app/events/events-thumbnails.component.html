@@ -1,0 +1,54 @@
+  <div class="profile-card-list hovercard" [routerLink] ="['/events', event.id]">
+    <div class="ribbon" [ngSwitch]="event?.seatsavailable">
+        <span *ngSwitchCase="'0'">Sold Out</span>
+      </div>
+      <div class="col-xs-4 col-sm-2 col-md-12 padding0 text-center">
+          <img [src]="event?.imageUrl" [alt]="event?.name"/>
+      </div>
+      <div class="col-xs-8 col-sm-10 col-md-12 padd-5">
+          <h3 class="person-name"> {{event?.name | uppercase}} </h3>
+          <p class="designation"><i class="fa fa-calendar" aria-hidden="true"></i>  {{event?.date | date:'fullDate'}}</p>
+          <div class="designation" [ngSwitch]="event?.time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i> Time:{{event?.time}}
+              <span *ngSwitchCase="'8:00 am'" class="label label-success">Early Start</span>
+              <span *ngSwitchCase="'10:00 am'" class="label label-primary">Late Start</span>
+              <span *ngSwitchDefault class="label label-default">Normal Start</span>
+            </div>
+
+          <div class="col-xs-12 col-md-12 address-info add-list" *ngIf="event?.location">
+              <ul class="list-unstyled">
+                  <li class="tel-contact" [ngSwitch]="event?.seatsavailable">
+                      <span>{{event?.seatsavailable}}</span>
+                      <span *ngSwitchCase="'50'" >Still Available</span>
+                      <span *ngSwitchCase="'10'" >Still Available</span>
+                      <span *ngSwitchCase="'100'" >Still Available</span>
+                      <span *ngSwitchCase="'150'" >Still Available</span>
+                      <span *ngSwitchCase="'0'" >Sold Out</span>
+                  </li>
+                  <li class="venue-place">
+                      <span>
+                          {{event.location?.address}}
+                          {{event?.location?.city}}, 
+                          {{event?.location?.country}}
+                      </span>
+                  </li>
+                 <!-- <li class="website-url" *ngIf="event?.onlineUrl">
+                   <span>
+                         {{event?.onlineUrl}}
+                   </span>
+                 </li>  -->
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 padding0" *ngIf="event.seatsavailable > 0">
+      <div class="contact-info">
+          <div class="btn-contact-info">
+                <button class="btn btn-event" [routerLink]="['booking', event.id]"> Book Now</button>
+          </div>
+        </div>
+  </div>
+
+  
+    
+

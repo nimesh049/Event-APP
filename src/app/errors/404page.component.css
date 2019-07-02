@@ -1,0 +1,50 @@
+.not_found {
+    text-align: center;
+    padding-top: 40px;
+}
+.not_found h3 {
+    color: #282827;
+    font-size: 33px;
+    font-weight: 100;
+    font-style: italic;
+    margin-bottom: -12px;
+    letter-spacing: 6px;
+    line-height: normal;
+}
+.not_found h2 {
+    color: #d1676b;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+    font-size: 105px;
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 10px;
+    line-height: normal;
+}
+.back-home {
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    padding: 18px 30px;
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    line-height: normal;
+    color: #000;
+    border: 2px solid #d1676b;
+    text-align: center;
+    background: rgba(0,0,0,0);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    transition: all .5s ease-in;
+    -webkit-transition: all .5s ease-in;
+    -moz-transition: all .5s ease-in;
+    -ms-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+}
+.back-home:hover {
+	background: #d1676b ;
+	color: #fff ;
+}

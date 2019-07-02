@@ -1,0 +1,11 @@
+.card-bottom {
+  margin-bottom: 10px;
+  min-height: 420px;
+  display: block;
+  float: left;
+}
+
+.search-events {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
